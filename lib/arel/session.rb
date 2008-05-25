@@ -25,21 +25,21 @@ module Arel
     
     module CRUD
       def create(insert)
-        insert.call(insert.engine.connection)
+        insert.call
       end
       
       def read(select)
         (@read ||= Hash.new do |hash, select|
-          hash[select] = select.call(select.engine.connection)
+          hash[select] = select.call
         end)[select]
       end
       
       def update(update)
-        update.call(update.engine.connection)
+        update.call
       end
       
       def delete(delete)
-        delete.call(delete.engine.connection)
+        delete.call
       end
     end
     include CRUD

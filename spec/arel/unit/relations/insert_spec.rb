@@ -56,16 +56,5 @@ module Arel
         end
       end
     end
-    
-    describe '#call' do
-      before do
-        @insertion = Insert.new(@relation, @relation[:name] => "nick")
-      end
-      
-      it 'executes an insert on the connection' do
-        mock(connection = Object.new).insert(@insertion.to_sql)
-        @insertion.call(connection)
-      end
-    end
   end
 end

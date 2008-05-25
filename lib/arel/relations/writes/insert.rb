@@ -16,8 +16,8 @@ module Arel
       ].join("\n")
     end
     
-    def call(connection = engine.connection)
-      connection.insert(to_sql)
+    def call
+      engine.create(self)
     end
   end
 end
