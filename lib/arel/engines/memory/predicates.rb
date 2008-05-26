@@ -1,7 +1,4 @@
 module Arel
-  class Predicate
-  end
-
   class Binary < Predicate
     def eval(row)
       operand1.eval(row).send(operator, operand2.eval(row))
@@ -9,11 +6,6 @@ module Arel
   end
 
   class Equality < Binary
-    def ==(other)
-      Equality === other and
-        ((operand1 == other.operand1 and operand2 == other.operand2) or
-         (operand1 == other.operand2 and operand2 == other.operand1))
-    end
   end
 
   class GreaterThanOrEqualTo < Binary
