@@ -9,7 +9,7 @@ module Arel
 
     describe '#to_sql' do
       it "manufactures sql with limit and offset" do
-        Skip.new(@relation, @skipped).to_s.should be_like("
+        Skip.new(@relation, @skipped).to_sql.should be_like("
           SELECT `users`.`id`, `users`.`name`
           FROM `users`
           OFFSET #{@skipped}

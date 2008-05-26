@@ -15,6 +15,6 @@ Spec::Runner.configure do |config|
   config.include(BeLikeMatcher, HashTheSameAsMatcher, DisambiguateAttributesMatcher)
   config.mock_with :rr
   config.before do
-    Arel::Table.engine = Arel::Engine.new(Fake::Engine.new)
+    Arel::Table.engine = Arel::Sql::Engine.new(Fake::Engine.new)
   end
 end
