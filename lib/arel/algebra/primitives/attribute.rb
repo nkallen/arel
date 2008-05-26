@@ -109,23 +109,23 @@ module Arel
     
     module Expressions
       def count
-        Expression.new(self, "COUNT")
+        Count.new(self)
       end
       
       def sum
-        Expression.new(self, "SUM")
+        Sum.new(self)
       end
       
       def maximum
-        Expression.new(self, "MAX")
+        Maximum.new(self)
       end
       
       def minimum
-        Expression.new(self, "MIN")
+        Minimum.new(self)
       end
       
       def average
-        Expression.new(self, "AVG")
+        Average.new(self)
       end
     end
     include Expressions
