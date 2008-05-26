@@ -34,3 +34,7 @@ module Arel
     end
   end
 end
+
+def Table(name, engine = Arel::Table.engine)
+  Arel::Table.new(name, engine)
+end
