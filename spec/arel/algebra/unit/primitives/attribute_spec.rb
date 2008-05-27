@@ -67,14 +67,6 @@ module Arel
         end
       end
     end
-    
-    describe '#to_sql' do
-      describe 'for a simple attribute' do
-        it "manufactures sql with an alias" do
-          @attribute.to_sql.should be_like("`users`.`id`")
-        end
-      end
-    end
   
     describe Attribute::Predications do
       before do
@@ -158,6 +150,20 @@ module Arel
           @attribute.average.should == Average.new(@attribute)
         end
       end 
+    end
+    
+    describe Attribute::Orderings do
+      describe '#asc' do
+        it 'manufactures an ascending ordering' do
+          pending
+        end
+      end
+      
+      describe '#desc' do
+        it 'manufactures a descending ordering' do
+          pending
+        end
+      end
     end
   end
 end

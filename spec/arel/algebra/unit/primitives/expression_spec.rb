@@ -35,11 +35,5 @@ module Arel
         end
       end
     end
-    
-    describe '#to_sql' do
-      it "manufactures sql with the expression and alias" do
-        Count.new(@attribute, :alias).to_sql.should == "COUNT(`users`.`id`) AS `alias`"
-      end
-    end
   end
 end

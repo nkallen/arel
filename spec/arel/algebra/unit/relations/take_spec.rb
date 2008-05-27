@@ -6,15 +6,5 @@ module Arel
       @relation = Table.new(:users)
       @taken = 4
     end
-
-    describe '#to_sql' do
-      it "manufactures sql with limit and offset" do
-        Take.new(@relation, @taken).to_sql.should be_like("
-          SELECT `users`.`id`, `users`.`name`
-          FROM `users`
-          LIMIT #{@taken}
-        ")
-      end
-    end
   end
 end

@@ -6,15 +6,5 @@ module Arel
       @relation = Table.new(:users)
       @skipped = 4
     end
-
-    describe '#to_sql' do
-      it "manufactures sql with limit and offset" do
-        Skip.new(@relation, @skipped).to_sql.should be_like("
-          SELECT `users`.`id`, `users`.`name`
-          FROM `users`
-          OFFSET #{@skipped}
-        ")
-      end
-    end
   end
 end

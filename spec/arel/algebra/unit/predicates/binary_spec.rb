@@ -7,41 +7,6 @@ module Arel
       @attribute1 = @relation[:id]
       @attribute2 = @relation[:name]
       class ConcreteBinary < Binary
-        def predicate_sql
-          "<=>"
-        end
-      end
-    end
-
-    describe '#to_sql' do
-      describe 'when relating two attributes' do
-        it 'manufactures sql with a binary operation' do
-          ConcreteBinary.new(@attribute1, @attribute2).to_sql.should be_like("
-            `users`.`id` <=> `users`.`name`
-          ")
-        end
-      end
-      
-      describe 'when relating an attribute and a value' do
-        before do
-          @value = "1-asdf"
-        end
-        
-        describe 'when relating to an integer attribute' do
-          it 'formats values as integers' do
-            ConcreteBinary.new(@attribute1, @value).to_sql.should be_like("
-              `users`.`id` <=> 1
-            ")
-          end
-        end
-        
-        describe 'when relating to a string attribute' do
-          it 'formats values as strings' do
-            ConcreteBinary.new(@attribute2, @value).to_sql.should be_like("
-              `users`.`name` <=> '1-asdf'
-            ")
-          end
-        end
       end
     end
   
