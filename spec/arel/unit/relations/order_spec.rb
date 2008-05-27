@@ -13,7 +13,7 @@ module Arel
           Order.new(@relation, @attribute).to_sql.should be_like("
             SELECT `users`.`id`, `users`.`name`
             FROM `users`
-            ORDER BY `users`.`id`
+            ORDER BY `users`.`id` ASC
           ")
         end
       end
@@ -27,7 +27,7 @@ module Arel
           Order.new(@relation, @attribute, @another_attribute).to_sql.should be_like("
             SELECT `users`.`id`, `users`.`name`
             FROM `users`
-            ORDER BY `users`.`id`, `users`.`name`
+            ORDER BY `users`.`id` ASC, `users`.`name` ASC
           ")
         end
       end
@@ -56,7 +56,7 @@ module Arel
           Order.new(@ordered_relation, @another_attribute).to_sql.should be_like("
             SELECT `users`.`id`, `users`.`name`
             FROM `users`
-            ORDER BY `users`.`name`, `users`.`id`
+            ORDER BY `users`.`name` ASC, `users`.`id` ASC
           ")
         end
       end

@@ -25,6 +25,20 @@ module Arel
     end
   end
   
+  class Ordering
+    def to_sql(formatter = Sql::OrderClause.new(relation))
+      formatter.ordering self
+    end
+  end
+  
+  class Ascending < Ordering
+    def direction_sql; 'ASC' end
+  end
+  
+  class Descending < Ordering
+    def direction_sql; 'DESC' end
+  end
+  
   class Expression < Attribute
     def to_sql(formatter = Sql::SelectClause.new(relation))
       formatter.expression self

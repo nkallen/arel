@@ -26,7 +26,7 @@ module Arel
             SELECT `users`.`id`
             FROM `users`
             WHERE `users`.`id` = 1
-            ORDER BY `users`.`id`
+            ORDER BY `users`.`id` ASC
             GROUP BY `users`.`id`
           ")
         end
