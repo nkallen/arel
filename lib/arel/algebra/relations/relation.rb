@@ -55,15 +55,15 @@ module Arel
       
       module Writable
         def insert(record)
-          session.create Insert.new(self, record); self
+          session.create Insert.new(self, record)
         end
 
         def update(assignments)
-          session.update Update.new(self, assignments); self
+          session.update Update.new(self, assignments)
         end
 
         def delete
-          session.delete Deletion.new(self); self
+          session.delete Deletion.new(self)
         end
       end
       include Writable

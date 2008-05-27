@@ -151,7 +151,7 @@ module Arel
           it 'manufactures a deletion relation' do
             Session.start do
               mock(Session.new).delete(Deletion.new(@relation))
-              @relation.delete.should == @relation
+              @relation.delete
             end
           end
         end
@@ -161,7 +161,7 @@ module Arel
             Session.start do
               record = { @relation[:name] => 'carl' }
               mock(Session.new).create(Insert.new(@relation, record))
-              @relation.insert(record).should == @relation
+              @relation.insert(record)
             end
           end
         end
@@ -171,7 +171,7 @@ module Arel
             Session.start do
               assignments = { @relation[:name] => Value.new('bob', @relation) }
               mock(Session.new).update(Update.new(@relation, assignments))
-              @relation.update(assignments).should == @relation
+              @relation.update(assignments)
             end
           end
         end
