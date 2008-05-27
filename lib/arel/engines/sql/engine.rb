@@ -19,7 +19,12 @@ module Arel
         end
 
         def read(relation)
-          Array.new(connection.execute(relation.to_sql), relation.attributes)
+          # FIXME
+          class << rows = connection.execute(relation.to_sql)
+            include Enumerable
+          end
+          
+          Array.new(rows, relation.attributes)
         end
     
         def update(relation)

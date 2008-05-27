@@ -40,7 +40,7 @@ module Arel
           
           describe "when given a string" do
             it "manufactures a join operation with the string passed through" do
-              @relation.join(arbitrary_string = "ASDF").should == Join.new(arbitrary_string, @relation) 
+              @relation.join(arbitrary_string = "ASDF").should == StringJoin.new(@relation, arbitrary_string) 
             end
           end
           
