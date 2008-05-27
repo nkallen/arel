@@ -5,14 +5,7 @@ module Arel
     before do
       @relation = Table.new(:users)
     end
-    
-    describe '==' do
-      it "obtains if the objects are the same" do
-        Alias.new(@relation).should_not == Alias.new(@relation)
-        (aliaz = Alias.new(@relation)).should == aliaz
-      end
-    end
-    
+
     describe '#to_sql' do
       describe 'when there is no ambiguity' do
         it 'does not alias table names anywhere a table name can appear' do
