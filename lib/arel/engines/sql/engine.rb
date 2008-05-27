@@ -19,12 +19,7 @@ module Arel
         end
 
         def read(relation)
-          results = connection.execute(relation.to_sql)
-          rows = []
-          results.each do |row|
-            rows << attributes.zip(row).to_hash
-          end
-          rows
+          Array.new(connection.execute(relation.to_sql), relation.attributes)
         end
     
         def update(relation)
